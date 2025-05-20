@@ -10,9 +10,8 @@ const Navbar = () => {
   return (
     <div className='container text-blue-900 oswald-uniquifier'>
 
-      <div className=' flex flex-row justify-between second-color  py-4 rounded-full my-4 mx-1 sticky
+      <div className=' flex flex-row w-screen justify-between second-color  py-4 rounded-full md:mx-4 md:my-4 md:ml-0 sticky
       shadow-[6px_3px_17px_1px_#718096]'>
-
 
         <div className='mx-4'>
           {/* <button>
@@ -20,7 +19,8 @@ const Navbar = () => {
 
           </svg>
           </button> */}
-          <Link
+          <Link className={({isActive}) => 
+          '${isActive? "text-blue-300": "text-slate-500"} hover:text-blue-300'}
             to="/login">
             Login
           </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
         <button
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:text-blue-200 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded={menuOpen}
           onClick={handlemenu}
@@ -58,7 +58,7 @@ const Navbar = () => {
 
         <div  className={`w-full md:inline-flex md:w-auto ${menuOpen ? '' : 'hidden'}  `}
           id="navbar-default">
-          <ul className='p-4 md:p-0 md:flex-row md:space-x-8  md:border-0 flex flex-col'>
+          <ul className='p-4 md:p-0 md:flex-row md:space-x-8 md:mr-6  md:border-0 flex flex-col'>
             <li className='block'>
               <NavLink
             to="/">
