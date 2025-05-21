@@ -2,6 +2,8 @@ import React from 'react'
 import Image from '../../assets/add.png'
 import Gif from '../../assets/right-arrow.gif'
 import { useNavigate } from 'react-router'
+import Manager from '../Manager/Manager';
+import Button from '@mui/material/Button';
 
 
 
@@ -9,7 +11,7 @@ function Home() {
   const navigate = useNavigate();
 
   const handlestart = () => {
-    navigate('/login')
+    navigate('/register')
   };
   return (
     <>
@@ -25,13 +27,15 @@ function Home() {
       Save, edit
        <br /> and Delete your Notes
       </span>
-      <button
+      <Button
+      variant='contained'
+      color='primary'
       onClick={handlestart}
-      className='flex flex-row third-color max-w-max text-white md:mx-2 my-8 rounded-full md:px-2 md:py-1'>
+      className='flex flex-row second-color max-w-max text-white font-semibold md:mx-2 my-8 rounded-full md:px-2 md:py-1'>
         Get Started
         <img src={Gif} alt="" 
         className='size-6 mx-2 text-3xl w-10' />
-      </button>
+      </Button>
       </div>
 
       <img src={Image}

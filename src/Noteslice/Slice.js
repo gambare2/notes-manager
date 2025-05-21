@@ -1,10 +1,21 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-const initialState= {
-    notes: localStorage.getItem('notes')
-    ? JSON.parse (localStorage.getItem('notes'))
-    : []
+
+let notesFromStorage = [];
+
+try {
+  const stored = localStorage.getItem('notes');
+  notesFromStorage = stored ? JSON.parse(stored) : [];
+} catch (e) {
+  console.warn('Invalid notes JSON in localStorage:', e);
+  notesFromStorage = [];
+  
 }
+
+const initialState = {
+  notes: notesFromStorage
+};
+
 
 export const noteslice = createSlice({
     name: 'notes',
